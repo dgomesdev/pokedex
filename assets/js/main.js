@@ -22,13 +22,13 @@ const pokemonListItem = (pokemon) => {
 };
 function loadMorePokemons(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        if (pokemonList !== null)
-            pokemonList.innerHTML += pokemons.map(pokemonListItem).join('');
+        const newHtml = pokemons.map(pokemonListItem).join('');
+        if (pokemonList)
+            pokemonList.innerHTML += newHtml;
     });
 }
 loadMorePokemons(offset, limit);
 loadMoreButton?.addEventListener('click', () => {
-    console.log('Button clicked');
     offset += limit;
     const qtyRecordWithNextPage = offset + limit;
     if (qtyRecordWithNextPage >= maxRecords) {

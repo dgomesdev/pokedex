@@ -178,5 +178,8 @@ body {
     border-radius: 1rem;
   }
 }
+.invisble {
+  display: none;
+}
 
 /*# sourceMappingURL=style.css.map */
